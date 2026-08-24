@@ -49,11 +49,11 @@ export const rolesColumns: ColumnDef<DataTableFeatures, Role>[] = [
     ),
   },
   {
-    id: "users",
-    accessorKey: "users",
-    header: "Users",
+    id: "members",
+    accessorKey: "members",
+    header: "Members",
     size: 70,
-    cell: ({ row }) => <span className="text-sm">{row.original.users}</span>,
+    cell: ({ row }) => <span className="text-sm">{row.original.members}</span>,
   },
   {
     id: "permissionSets",

@@ -1,6 +1,6 @@
-import { users } from "./_components/data";
-import { Users } from "./_components/users";
+import { members } from "./_components/data";
+import { Members } from "./_components/members";
 
 export default function Page() {
-  return <Users users={users} />;
+  return <Members members={members} />;
 }

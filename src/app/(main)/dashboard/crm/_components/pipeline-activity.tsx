@@ -17,7 +17,10 @@ const pipelineChartConfig = {
 } satisfies ChartConfig;
 
 const axisMonthFormatter = new Intl.DateTimeFormat("en-US", { month: "short" });
-const tooltipMonthFormatter = new Intl.DateTimeFormat("en-US", { month: "short", year: "2-digit" });
+const tooltipMonthFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  year: "2-digit",
+});
 
 function getRollingMonthData(values: readonly number[]) {
   return values.map((qualified, index) => {
@@ -66,7 +69,7 @@ export function PipelineActivity() {
                     id="crm-qualified-pattern"
                     width="4"
                     height="4"
-                    patternUnits="userSpaceOnUse"
+                    patternUnits="memberspaceOnUse"
                     patternTransform="rotate(45)"
                   >
                     <rect width="6" height="6" fill="var(--color-qualified)" fillOpacity="0.15" />

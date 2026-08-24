@@ -18,11 +18,11 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { dataTableFeatures } from "@/lib/data-table-features";
 
-import { filters, type UserRow } from "./data";
-import { usersColumns } from "./users-columns";
-import { UsersTable } from "./users-table";
+import { filters, type MemberRow } from "./data";
+import { membersColumns } from "./members-columns";
+import { MembersTable } from "./members-table";
 
-export function Users({ users }: { users: UserRow[] }) {
+export function Members({ members }: { members: MemberRow[] }) {
   const [rowSelection, setRowSelection] = React.useState({});
   const [sorting, setSorting] = React.useState<SortingState>([{ id: "joinedDate", desc: true }]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
@@ -37,8 +37,8 @@ export function Users({ users }: { users: UserRow[] }) {
 
   const table = useTable({
     features: dataTableFeatures,
-    data: users,
-    columns: usersColumns,
+    data: members,
+    columns: membersColumns,
     state: {
       rowSelection,
       sorting,
@@ -72,7 +72,7 @@ export function Users({ users }: { users: UserRow[] }) {
   return (
     <Card>
       <CardHeader className="border-b has-data-[slot=card-action]:grid-cols-1 md:has-data-[slot=card-action]:grid-cols-[1fr_auto]">
-        <CardTitle className="text-xl leading-none">Users</CardTitle>
+        <CardTitle className="text-xl leading-none">Members</CardTitle>
         <CardDescription className="max-w-sm leading-snug">
           Manage your organization members and their access.
         </CardDescription>
@@ -83,7 +83,7 @@ export function Users({ users }: { users: UserRow[] }) {
             </InputGroupAddon>
             <InputGroupInput
               className="h-7"
-              placeholder="Search users..."
+              placeholder="Search members..."
               value={searchQuery}
               onChange={(event) => {
                 table.getColumn("search")?.setFilterValue(event.target.value || undefined);
@@ -192,7 +192,7 @@ export function Users({ users }: { users: UserRow[] }) {
           </Tabs>
         </div>
 
-        <UsersTable table={table} />
+        <MembersTable table={table} />
       </CardContent>
     </Card>
   );

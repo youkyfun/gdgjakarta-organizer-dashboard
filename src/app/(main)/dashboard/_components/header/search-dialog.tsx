@@ -145,7 +145,7 @@ export function SearchDialog() {
       </Button>
       <CommandDialog open={open} onOpenChange={handleOpenChange}>
         <Command>
-          <CommandInput placeholder="Search dashboards, users, and more…" value={query} onValueChange={setQuery} />
+          <CommandInput placeholder="Search dashboards, members, and more…" value={query} onValueChange={setQuery} />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
             {query ? renderGroups(searchItems) : renderGroups(recommendations)}

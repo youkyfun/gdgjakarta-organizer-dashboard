@@ -17,7 +17,7 @@ import { Separator } from "@/components/ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { DataTableFeatures } from "@/lib/data-table-features";
 
-import type { UserRow } from "./data";
+import type { MemberRow } from "./data";
 
 function preventPaginationNavigation(event: MouseEvent<HTMLAnchorElement>) {
   event.preventDefault();
@@ -34,7 +34,7 @@ function getPageNumbers(currentPage: number, pageCount: number) {
   return [currentPage - 1, currentPage, currentPage + 1];
 }
 
-export function UsersTable({ table }: { table: ReactTable<DataTableFeatures, UserRow> }) {
+export function MembersTable({ table }: { table: ReactTable<DataTableFeatures, MemberRow> }) {
   const pageCount = Math.max(table.getPageCount(), 1);
   const currentPage = Math.min(table.state.pagination.pageIndex + 1, pageCount);
   const pageNumbers = getPageNumbers(currentPage, pageCount);
@@ -92,7 +92,7 @@ export function UsersTable({ table }: { table: ReactTable<DataTableFeatures, Use
               value={`${table.state.pagination.pageSize}`}
               onValueChange={(value) => table.setPageSize(Number(value))}
             >
-              <SelectTrigger size="sm" className="w-20" id="users-rows-per-page">
+              <SelectTrigger size="sm" className="w-20" id="members-rows-per-page">
                 <SelectValue placeholder={rowsPerPage} />
               </SelectTrigger>
               <SelectContent side="top">

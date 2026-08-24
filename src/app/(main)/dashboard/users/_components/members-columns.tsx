@@ -18,7 +18,7 @@ import {
 import type { DataTableFeatures } from "@/lib/data-table-features";
 import { cn, getInitials } from "@/lib/utils";
 
-import { statusMeta, type UserRow } from "./data";
+import { type MemberRow, statusMeta } from "./data";
 
 function RoleCell({ role, team }: { role: string; team: string }) {
   return (
@@ -29,7 +29,7 @@ function RoleCell({ role, team }: { role: string; team: string }) {
   );
 }
 
-function StatusBadge({ status }: { status: UserRow["status"] }) {
+function StatusBadge({ status }: { status: MemberRow["status"] }) {
   const meta = statusMeta[status];
 
   return (
@@ -115,7 +115,7 @@ function WorkspaceCell({ workspaces }: { workspaces: string[] }) {
   );
 }
 
-export const usersColumns: ColumnDef<DataTableFeatures, UserRow>[] = [
+export const membersColumns: ColumnDef<DataTableFeatures, MemberRow>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -129,7 +129,7 @@ export const usersColumns: ColumnDef<DataTableFeatures, UserRow>[] = [
         >
           {(checked) => (
             <Checkbox
-              aria-label="Select all users"
+              aria-label="Select all members"
               checked={checked}
               onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
             />
@@ -161,7 +161,7 @@ export const usersColumns: ColumnDef<DataTableFeatures, UserRow>[] = [
   },
   {
     accessorKey: "name",
-    header: "User",
+    header: "Member",
     cell: ({ row }) => (
       <div className="flex items-center gap-3">
         <AvatarCell name={row.original.name} lastActive={row.original.lastActive} />
@@ -220,11 +220,11 @@ export const usersColumns: ColumnDef<DataTableFeatures, UserRow>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem>View profile</DropdownMenuItem>
-            <DropdownMenuItem>Edit user</DropdownMenuItem>
+            <DropdownMenuItem>Edit member</DropdownMenuItem>
             <DropdownMenuItem>Manage team</DropdownMenuItem>
             <DropdownMenuItem>Resend invite</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem variant="destructive">Deactivate user</DropdownMenuItem>
+            <DropdownMenuItem variant="destructive">Deactivate member</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

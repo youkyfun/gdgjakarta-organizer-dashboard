@@ -1,4 +1,4 @@
-export type UserStatus = "Active" | "Pending invite" | "Deactivated" | "Locked" | "Suspended";
+export type MemberStatus = "Active" | "Pending invite" | "Deactivated" | "Locked" | "Suspended";
 
 const teamValues = [
   "Platform",
@@ -11,20 +11,20 @@ const teamValues = [
   "Finance",
 ] as const;
 
-export type UserTeam = (typeof teamValues)[number];
+export type MemberTeam = (typeof teamValues)[number];
 
-export type UserRow = {
+export type MemberRow = {
   email: string;
   joinedDate: string;
   lastActive: number;
   name: string;
   role: string;
-  status: UserStatus;
-  team: UserTeam;
+  status: MemberStatus;
+  team: MemberTeam;
   workspace: string[];
 };
 
-export const users: UserRow[] = [
+export const members: MemberRow[] = [
   {
     name: "Olivia Rhye",
     email: "olivia.rhye@weblabs.studio",
@@ -294,7 +294,7 @@ export const filters = {
   workspace: ["All", "Weblabs Studio", "Sandbox", "Internal Tools", "Acme Inc."],
 };
 
-export const statusMeta: Record<UserStatus, { badgeClass: string; dotClass: string }> = {
+export const statusMeta: Record<MemberStatus, { badgeClass: string; dotClass: string }> = {
   Active: {
     badgeClass: "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
     dotClass: "bg-emerald-500",

@@ -53,7 +53,7 @@ const chartConfig = {
 
 function AssignmentDotPattern({ color, id }: { color: string; id: string }) {
   return (
-    <pattern id={id} width="6" height="6" patternUnits="userSpaceOnUse">
+    <pattern id={id} width="6" height="6" patternUnits="memberspaceOnUse">
       <rect width="6" height="6" fill={color} fillOpacity="0.7" />
       <circle cx="1.5" cy="1.5" r="0.8" fill={color} fillOpacity="0.25" />
       <circle cx="4.5" cy="4.5" r="0.8" fill={color} fillOpacity="0.25" />

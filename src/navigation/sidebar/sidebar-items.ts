@@ -69,71 +69,10 @@ export const sidebarItems: NavGroup[] = [
     items: [
       {
         id: "default",
-        title: "Default",
-        url: "/dashboard/default",
+        title: "Dashboard",
+        // TODO dashboard UI not showing properly, need to fix this
+        url: "/dashboard/",
         icon: LayoutDashboard,
-      },
-      {
-        id: "crm",
-        title: "CRM",
-        url: "/dashboard/crm",
-        icon: ChartBar,
-      },
-      {
-        id: "finance",
-        title: "Finance",
-        url: "/dashboard/finance",
-        icon: Banknote,
-      },
-      {
-        id: "analytics",
-        title: "Analytics",
-        url: "/dashboard/analytics",
-        icon: Gauge,
-      },
-      {
-        id: "productivity",
-        title: "Productivity",
-        url: "/dashboard/productivity",
-        icon: ListTodo,
-      },
-      {
-        id: "ecommerce",
-        title: "E-commerce",
-        url: "/dashboard/ecommerce",
-        icon: ShoppingBag,
-      },
-      {
-        id: "academy",
-        title: "Academy",
-        url: "/dashboard/academy",
-        icon: GraduationCap,
-      },
-      {
-        id: "logistics",
-        title: "Logistics",
-        url: "/dashboard/logistics",
-        icon: Forklift,
-      },
-      {
-        id: "infrastructure",
-        title: "Infrastructure",
-        url: "/dashboard/infrastructure",
-        icon: Server,
-      },
-      {
-        id: "file-manager",
-        title: "File Manager",
-        url: "/dashboard/file-manager",
-        icon: FolderOpen,
-        badge: "new",
-      },
-      {
-        id: "patient-monitoring",
-        title: "Patient Monitoring",
-        url: "/dashboard/patient-monitoring",
-        icon: HeartPulse,
-        badge: "new",
       },
     ],
   },
@@ -146,12 +85,6 @@ export const sidebarItems: NavGroup[] = [
         title: "Email",
         url: "/dashboard/mail",
         icon: Mail,
-      },
-      {
-        id: "chat",
-        title: "Chat",
-        url: "/dashboard/chat",
-        icon: MessageSquare,
       },
       {
         id: "calendar",
@@ -172,23 +105,12 @@ export const sidebarItems: NavGroup[] = [
         icon: CheckSquare,
       },
       {
-        id: "invoice",
-        title: "Invoice",
-        url: "/dashboard/invoice",
-        icon: ReceiptText,
-      },
-      {
-        id: "profile",
-        title: "Profile",
-        url: "/dashboard/profile",
-        icon: UserRound,
-        badge: "new",
-      },
-      {
-        id: "users",
-        title: "Users",
+        id: "members",
+        title: "Members",
+        // TODO supposed to be "/dashboard/users" but the UI is not showing properly, need to fix this
         url: "/dashboard/users",
         icon: Users,
+        badge: "new",
       },
       {
         id: "roles",
@@ -196,37 +118,10 @@ export const sidebarItems: NavGroup[] = [
         url: "/dashboard/roles",
         icon: Lock,
       },
-      {
-        id: "authentication",
-        title: "Authentication",
-        icon: Fingerprint,
-        subItems: [
-          { id: "auth-login-v1", title: "Login v1", url: "/auth/v1/login", newTab: true },
-          { id: "auth-login-v2", title: "Login v2", url: "/auth/v2/login", newTab: true },
-          { id: "auth-register-v1", title: "Register v1", url: "/auth/v1/register", newTab: true },
-          { id: "auth-register-v2", title: "Register v2", url: "/auth/v2/register", newTab: true },
-        ],
-      },
     ],
   },
   {
     id: 3,
-    label: "Legacy",
-    items: [
-      {
-        id: "legacy-dashboards",
-        title: "Dashboards",
-        subItems: [
-          { id: "legacy-default", title: "Default V1", url: "/dashboard/default-v1" },
-          { id: "legacy-crm", title: "CRM V1", url: "/dashboard/crm-v1" },
-          { id: "legacy-finance", title: "Finance V1", url: "/dashboard/finance-v1" },
-          { id: "legacy-analytics", title: "Analytics V1", url: "/dashboard/analytics-v1" },
-        ],
-      },
-    ],
-  },
-  {
-    id: 4,
     label: "Misc",
     items: [
       {

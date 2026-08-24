@@ -47,26 +47,85 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { id: "inbox", title: "Inbox", label: "24", icon: Inbox, isActive: true },
-  { id: "mentions", title: "Mentions", label: "3", icon: Mail, isActive: false },
+  {
+    id: "mentions",
+    title: "Mentions",
+    label: "3",
+    icon: Mail,
+    isActive: false,
+  },
   { id: "snoozed", title: "Snoozed", icon: Clock3, isActive: false },
   { id: "sent", title: "Sent", icon: Send, isActive: false },
-  { id: "all", title: "All conversations", icon: MessageCircle, isActive: false },
-  { id: "unassigned", title: "Unassigned", label: "7", icon: User, isActive: false },
+  {
+    id: "all",
+    title: "All conversations",
+    icon: MessageCircle,
+    isActive: false,
+  },
+  {
+    id: "unassigned",
+    title: "Unassigned",
+    label: "7",
+    icon: User,
+    isActive: false,
+  },
 ];
 
 export const channelItems: NavItem[] = [
   { id: "email", title: "Email", label: "18", icon: Mail, isActive: false },
-  { id: "chat", title: "Chat", label: "5", icon: MessageCircle, isActive: false },
-  { id: "whatsapp", title: "WhatsApp", label: "1", icon: Phone, isActive: false },
-  { id: "instagram", title: "Instagram", label: "0", icon: Phone, isActive: false },
-  { id: "facebook", title: "Facebook", label: "0", icon: Phone, isActive: false },
+  {
+    id: "chat",
+    title: "Chat",
+    label: "5",
+    icon: MessageCircle,
+    isActive: false,
+  },
+  {
+    id: "whatsapp",
+    title: "WhatsApp",
+    label: "1",
+    icon: Phone,
+    isActive: false,
+  },
+  {
+    id: "instagram",
+    title: "Instagram",
+    label: "0",
+    icon: Phone,
+    isActive: false,
+  },
+  {
+    id: "facebook",
+    title: "Facebook",
+    label: "0",
+    icon: Phone,
+    isActive: false,
+  },
   { id: "phone", title: "Phone", label: "0", icon: Phone, isActive: false },
 ];
 
 export const viewItems: NavItem[] = [
-  { id: "vip", title: "VIP Customers", label: "8", icon: Star, isActive: false },
-  { id: "orders", title: "Orders & Returns", label: "6", icon: Inbox, isActive: false },
-  { id: "feedback", title: "Product Feedback", label: "2", icon: MessageCircle, isActive: false },
+  {
+    id: "vip",
+    title: "VIP Customers",
+    label: "8",
+    icon: Star,
+    isActive: false,
+  },
+  {
+    id: "orders",
+    title: "Orders & Returns",
+    label: "6",
+    icon: Inbox,
+    isActive: false,
+  },
+  {
+    id: "feedback",
+    title: "Product Feedback",
+    label: "2",
+    icon: MessageCircle,
+    isActive: false,
+  },
 ];
 
 export const conversations: Conversation[] = [
@@ -295,7 +354,12 @@ export const conversations: Conversation[] = [
         time: "10:49 AM",
         reaction: "👍",
       },
-      { id: 505, align: "start", text: "Perfect. That should cover everything for Thursday.", time: "10:50 AM" },
+      {
+        id: 505,
+        align: "start",
+        text: "Perfect. That should cover everything for Thursday.",
+        time: "10:50 AM",
+      },
     ],
   },
   {
@@ -556,7 +620,7 @@ export const conversations: Conversation[] = [
     group: "Today",
     name: "Kate Morrison",
     subject: "Custom domain SSL cert expired overnight",
-    preview: "Users are seeing certificate warnings when they hit our shop page. This is urgent.",
+    preview: "Members are seeing certificate warnings when they hit our shop page. This is urgent.",
     time: "8:05 AM",
     isUnread: true,
     isOnline: false,
@@ -578,7 +642,7 @@ export const conversations: Conversation[] = [
       {
         id: 1101,
         align: "start",
-        text: "Our custom domain started showing certificate warnings overnight. Users cannot complete checkout.",
+        text: "Our custom domain started showing certificate warnings overnight. Members cannot complete checkout.",
         time: "8:05 AM",
       },
       {
@@ -808,7 +872,7 @@ export const conversations: Conversation[] = [
     group: "Today",
     name: "Koray Okumus",
     subject: "Mobile app crashes on Android 14 after update",
-    preview: "Three users reported the same crash on launch. Stack trace from Firebase attached.",
+    preview: "Three members reported the same crash on launch. Stack trace from Firebase attached.",
     time: "5:18 AM",
     isUnread: true,
     isOnline: false,
@@ -830,7 +894,7 @@ export const conversations: Conversation[] = [
       {
         id: 1601,
         align: "start",
-        text: "Our Android users on version 14 are seeing crashes right after the splash screen. Firebase shows three affected devices so far.",
+        text: "Our Android members on version 14 are seeing crashes right after the splash screen. Firebase shows three affected devices so far.",
         time: "5:18 AM",
       },
       {
