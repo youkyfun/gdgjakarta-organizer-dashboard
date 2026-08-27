@@ -70,8 +70,7 @@ export const sidebarItems: NavGroup[] = [
       {
         id: "default",
         title: "Dashboard",
-        // TODO dashboard UI not showing properly, need to fix this
-        url: "/dashboard/academy",
+        url: "/dashboard/default",
         icon: LayoutDashboard,
       },
     ],

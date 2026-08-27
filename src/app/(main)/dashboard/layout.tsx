@@ -63,7 +63,7 @@ export default async function Layout({ children }: Readonly<{ children: ReactNod
               <LayoutControls />
               <ThemeSwitcher />
               <GitHubRepositoriesMenu />
-              <AccountSwitcher users={users} />
+              {/* <AccountSwitcher users={users} /> */}
             </div>
           </div>
         </header>
