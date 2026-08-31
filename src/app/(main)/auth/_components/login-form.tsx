@@ -1,6 +1,11 @@
 "use client";
 
+import { useState } from "react";
+
+import { useRouter, useSearchParams } from "next/navigation";
+
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -9,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldContent, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { loginAction } from "@/server/auth-actions";
 
 const formSchema = z.object({
   email: z.email({ message: "Please enter a valid email address." }),
@@ -16,17 +22,11 @@ const formSchema = z.object({
   remember: z.boolean().optional(),
 });
 
-function onSubmit(data: z.infer<typeof formSchema>) {
-  toast("You submitted the following values", {
-    description: (
-      <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
-        <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-      </pre>
-    ),
-  });
-}
-
 export function LoginForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [serverError, setServerError] = useState<string | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,8 +36,30 @@ export function LoginForm() {
     },
   });
 
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    setServerError(null);
+    const result = await loginAction(data.email, data.password, Boolean(data.remember));
+
+    if (!result.success) {
+      setServerError(result.error);
+      return;
+    }
+
+    toast.success("Logged in successfully!");
+    const callbackUrl = searchParams.get("callbackUrl");
+    router.push(callbackUrl && callbackUrl.startsWith("/") ? callbackUrl : "/dashboard/default");
+    router.refresh();
+  }
+
+  const isSubmitting = form.formState.isSubmitting;
+
   return (
     <form noValidate onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">
+      {serverError && (
+        <p role="alert" className="rounded-md bg-destructive/10 px-3 py-2 text-destructive text-sm">
+          {serverError}
+        </p>
+      )}
       <FieldGroup className="gap-4">
         <Controller
           control={form.control}
@@ -52,6 +74,7 @@ export function LoginForm() {
                 placeholder="you@example.com"
                 autoComplete="email"
                 aria-invalid={fieldState.invalid}
+                disabled={isSubmitting}
               />
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
@@ -70,6 +93,7 @@ export function LoginForm() {
                 placeholder="••••••••"
                 autoComplete="current-password"
                 aria-invalid={fieldState.invalid}
+                disabled={isSubmitting}
               />
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
             </Field>
@@ -86,6 +110,7 @@ export function LoginForm() {
                 checked={field.value}
                 onCheckedChange={(checked) => field.onChange(Boolean(checked))}
                 aria-invalid={fieldState.invalid}
+                disabled={isSubmitting}
               />
               <FieldContent>
                 <FieldLabel htmlFor="login-remember" className="font-normal">
@@ -97,8 +122,15 @@ export function LoginForm() {
           )}
         />
       </FieldGroup>
-      <Button className="w-full" type="submit">
-        Login
+      <Button className="w-full" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? (
+          <>
+            <Loader2 className="mr-2 size-4 animate-spin" />
+            Logging in…
+          </>
+        ) : (
+          "Login"
+        )}
       </Button>
     </form>
   );
