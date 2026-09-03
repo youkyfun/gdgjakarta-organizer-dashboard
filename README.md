@@ -11,21 +11,16 @@
 
 You can run this project locally, or deploy it instantly with Vercel.
 
-### Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farhamkhnz%2Fnext-shadcn-admin-dashboard)
-
-_Deploy your own copy with one click._
-
 ### Run locally
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/arhamkhnz/next-shadcn-admin-dashboard.git
+   git clone https://github.com/gdgjakarta/gdgjakarta-organizer-dashboard.git
    ```
 2. **Navigate into the project**
    ```bash
-    cd next-shadcn-admin-dashboard
+    cd gdgjakarta-organizer-dashboard
+
    ```
 3. **Install dependencies**
 

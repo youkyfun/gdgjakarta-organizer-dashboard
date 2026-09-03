@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Check, EllipsisVertical, LogOut, membersRound, PenLine, Settings2, UserPlus } from "lucide-react";
+import { Check, EllipsisVertical, LogOut, PenLine, Settings2, UserPlus, UsersRound } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -214,7 +214,7 @@ function AccountMenuContent({
           Add account
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <membersRound />
+          <UsersRound />
           Manage accounts
         </DropdownMenuItem>
         <DropdownMenuItem>

@@ -22,7 +22,7 @@ export async function loginAction(email: string, password: string, remember: boo
   if (!isDemoLogin) {
     return { success: false, error: "Invalid email or password." };
   }
-  const token = "demo-auth-token-" + Date.now();
+  const token = `demo-auth-token-${Date.now()}`;
   // ── End demo auth ──────────────────────────────────────────────────────────
 
   const cookieStore = await cookies();

@@ -47,7 +47,7 @@ export function LoginForm() {
 
     toast.success("Logged in successfully!");
     const callbackUrl = searchParams.get("callbackUrl");
-    router.push(callbackUrl && callbackUrl.startsWith("/") ? callbackUrl : "/dashboard/default");
+    router.push(callbackUrl?.startsWith("/") ? callbackUrl : "/dashboard/admin");
     router.refresh();
   }
 

@@ -32,7 +32,7 @@ export function middleware(request: NextRequest) {
   // Redirect bare root "/" based on auth state
   if (pathname === "/") {
     if (isAuthenticated) {
-      return NextResponse.redirect(new URL("/dashboard/default", request.url));
+      return NextResponse.redirect(new URL("/dashboard/admin", request.url));
     }
     return NextResponse.redirect(new URL(LOGIN_PATH, request.url));
   }
@@ -46,7 +46,7 @@ export function middleware(request: NextRequest) {
 
   // Auth page: already authenticated → redirect to dashboard
   if (isAuthPage(pathname) && isAuthenticated) {
-    return NextResponse.redirect(new URL("/dashboard/default", request.url));
+    return NextResponse.redirect(new URL("/dashboard/admin", request.url));
   }
 
   return NextResponse.next();
@@ -59,5 +59,5 @@ export const config = {
    * - Static files (favicon, images, etc.)
    * - API routes
    */
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|api/).*)"],
+  matcher: ["/((?!_next/static|_next/image|favicon/favicon.ico|api/).*)"],
 };
